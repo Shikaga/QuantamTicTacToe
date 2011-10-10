@@ -16,3 +16,21 @@ SuperMove.prototype.makeClassical = function(point) {
 SuperMove.prototype.isClassical = function() {
 	return this.classical;
 };
+
+SuperMove.prototype.makeClassicalPoint = function(point) {
+	if (this.point1.equals(point)) {
+		this.makeClassical(0);		
+	}
+	else {
+		this.makeClassical(1);
+	}
+};
+
+SuperMove.prototype.makeClassicalNotPoint = function(point) {
+	if (this.point1.equals(point)) {
+		this.makeClassical(1);		
+	}
+	if (this.point2.equals(point)) {
+		this.makeClassical(0);		
+	}
+};
