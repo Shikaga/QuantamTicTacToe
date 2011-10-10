@@ -49,15 +49,10 @@ function makeMove() {
 	$("#classicalMoves").html(string);
 	drawCanvas();
 	var classicalMoves = moveHandler.getValidClassicalMoves();
-	for (move in classicalMoves) {		
-		console.log(classicalMoves[move]);
-		console.log(classicalMoves[move].collapseSignature());
-	}
 	var collapsibleMoves = moveHandler.getCollapsable();
 	if (collapsibleMoves.length != 0) {
 		alert('There are collapsbile moves!');
 	}
-	console.log(classicalMoves);
 };
 
 var canvasClick = function(e) {
@@ -73,7 +68,6 @@ function drawCanvas() {
 	context.fillRect(40,40,310,310);
 	for (var i=0; i < 3; i++ ) {
 		for (var j=0; j < 3; j++ ) {
-			console.log(i,j)
 			drawSquare(context,i,j,90,moveHandler.getMovesInSector(i, j));
 		}
 	}	

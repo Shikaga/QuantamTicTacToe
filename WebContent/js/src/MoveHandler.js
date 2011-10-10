@@ -49,10 +49,13 @@ MoveHandler.prototype.getValidClassicalMoves = function() {
 
 MoveHandler.prototype.getCollapsable = function() {
 	var returnArray = [];
-	var moveList = this.getClassicalMoves();
-	for (move in moveList) {
-		if (!moveList[move].isValid()) {
-			returnArray.push(moveList[move]);
+	var classicalMoveListArray = this.getValidClassicalMoves();
+	for (var i=0; i < classicalMoveListArray.length; i++) {
+		for (var j=i+1; j < classicalMoveListArray.length; j++) {
+			console.log(classicalMoveListArray[i].collapseSignature(),classicalMoveListArray[j].collapseSignature());
+			if (classicalMoveListArray[i].collapseSignature() == classicalMoveListArray[j].collapseSignature()) {
+				returnArray.push(classicalMoveListArray[i]);
+			}
 		}
 	}
 	return returnArray;

@@ -90,7 +90,8 @@ MoveHandlerTest.prototype.testReturnCollapsibleMoves = function() {
 	moveHandler.addMove(move1);
 	moveHandler.addMove(move2);
 	collapseChoices = moveHandler.getCollapsable();
-	assertEquals(2,collapseChoices.length);
+	jstestdriver.console.log(collapseChoices);
+	assertEquals(1,collapseChoices.length);
 };
 
 
