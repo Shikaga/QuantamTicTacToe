@@ -61,8 +61,7 @@ MoveHandler.prototype.getCollapsable = function() {
 	return returnArray;
 };
 
-MoveHandler.prototype.collapseString = function() {
-	jstestdriver.console.log(this.movesMade[0].point1);
-	this.movesMade[0].makeClassical(0);
-	this.movesMade[1].makeClassical(1);
+MoveHandler.prototype.collapseString = function(move,movePoint) {
+	this.movesMade[move].makeClassicalPoint(movePoint);
+	//this.movesMade[0].makeClassicalNotPoint(movePoint);
 };
