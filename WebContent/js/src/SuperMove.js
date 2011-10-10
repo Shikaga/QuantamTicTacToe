@@ -5,7 +5,7 @@ SuperMove = function(point1,point2) {
 };
 
 SuperMove.prototype.makeClassical = function(point) {
-	if (point == 1) {		
+	if (point == 0) {		
 		this.point2 = this.point1;
 	} else {
 		this.point1 = this.point2;

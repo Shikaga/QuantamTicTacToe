@@ -82,8 +82,8 @@ ClassicalMoveGeneratorTest
 	moveHandler.addMove(superMove2);
 	moveHandler.addMove(superMove3);
 	
-	moveHandler.movesMade[0].makeClassical(1);
-	moveHandler.movesMade[1].makeClassical(2);
+	moveHandler.movesMade[0].makeClassical(0);
+	moveHandler.movesMade[1].makeClassical(1);
 	
 	var classicalMoveList1 = new ClassicalMoveList();
 	classicalMoveList1.addMove(classicalMove1);
