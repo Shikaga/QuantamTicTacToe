@@ -23,12 +23,20 @@ var superMove2 = new SuperMove(classicalMove3,classicalMove4);
 
 var moveHandler = new MoveHandler();
 var lastButtonsClicked = [];
+var collapseTime = false;
 
 function clickButton(x,y) {
-	lastButtonsClicked.push(new Point(x,y));
-	if (lastButtonsClicked.length == 2) {
-		makeMove();
-		lastButtonsClicked = [];
+	if (collapseTime) {
+		collapseTime = false;
+		moveHandler.collapseString(0, new Point(x,y));
+		repaint();
+		console.log(moveHandler);
+	} else {		
+		lastButtonsClicked.push(new Point(x,y));
+		if (lastButtonsClicked.length == 2) {
+			makeMove();
+			lastButtonsClicked = [];
+		}
 	}
 }
 
@@ -37,8 +45,13 @@ function makeMove() {
 	x2=lastButtonsClicked[lastButtonsClicked.length-2].x;
 	y1=lastButtonsClicked[lastButtonsClicked.length-1].y;
 	y2=lastButtonsClicked[lastButtonsClicked.length-2].y;
-	var string = "<p>XXXXXXXXXXXX</p>\n";
 	moveHandler.addMove(new SuperMove(new Point(x1,y1),new Point(x2,y2)));
+	repaint();
+};
+
+function repaint() {
+	var string = "<p>XXXXXXXXXXXX</p>\n";
+
 	var moveListArray = moveHandler.getValidClassicalMoves();
 	for (moveList in moveListArray) {					
 		string += "<p>NEW MOVE</p>\n";
@@ -51,9 +64,10 @@ function makeMove() {
 	var classicalMoves = moveHandler.getValidClassicalMoves();
 	var collapsibleMoves = moveHandler.getCollapsable();
 	if (collapsibleMoves.length != 0) {
+		collapseTime = true;
 		alert('There are collapsbile moves!');
 	}
-};
+}
 
 var canvasClick = function(e) {
 	var x = Math.floor((e.offsetX-50)/100);

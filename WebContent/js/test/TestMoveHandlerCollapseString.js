@@ -11,6 +11,7 @@ TestMoveHandlerCollapseString.prototype.testCollapse00020002Move0Point00 = funct
 	classicalMoveList.addMove(new Point(0, 0));
 	classicalMoveList.addMove(new Point(0, 2));
 	assertEquals(classicalMoveList,classicalMoves[0]);
+	assertEquals(2,moveHandler.getMovesMade());
 };
 
 TestMoveHandlerCollapseString.prototype.testCollapse00020002Move0Point01 = function() {
