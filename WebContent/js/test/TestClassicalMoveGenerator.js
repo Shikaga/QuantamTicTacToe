@@ -96,7 +96,6 @@ ClassicalMoveGeneratorTest
 	classicalMoveList2.addMove(classicalMove6);
 
 	var moveArray = moveHandler.getValidClassicalMoves();
-	jstestdriver.console.log(moveArray);
 	assertEquals(2,moveArray.length);
 	assertEquals(classicalMoveList1, moveArray[0]);
 	assertEquals(classicalMoveList2, moveArray[1]);

@@ -12,6 +12,9 @@ TestMoveHandlerCollapseString.prototype.testCollapse00020002Move0Point00 = funct
 	classicalMoveList.addMove(new Point(0, 2));
 	assertEquals(classicalMoveList,classicalMoves[0]);
 	assertEquals(2,moveHandler.getMovesMade());
+	
+	assertEquals(true,moveHandler.movesMade[0].isClassical());
+	assertEquals(true,moveHandler.movesMade[1].isClassical());
 };
 
 TestMoveHandlerCollapseString.prototype.testCollapse00020002Move0Point01 = function() {
@@ -25,6 +28,9 @@ TestMoveHandlerCollapseString.prototype.testCollapse00020002Move0Point01 = funct
 	classicalMoveList.addMove(new Point(0, 2));
 	classicalMoveList.addMove(new Point(0, 0));
 	assertEquals(classicalMoveList,classicalMoves[0]);
+
+	assertEquals(true,moveHandler.movesMade[0].isClassical());
+	assertEquals(true,moveHandler.movesMade[1].isClassical());
 };
 
 TestMoveHandlerCollapseString.prototype.testCollapse00020002Move1Point00 = function() {
@@ -38,6 +44,9 @@ TestMoveHandlerCollapseString.prototype.testCollapse00020002Move1Point00 = funct
 	classicalMoveList.addMove(new Point(0, 2));
 	classicalMoveList.addMove(new Point(0, 0));
 	assertEquals(classicalMoveList,classicalMoves[0]);
+//	
+//	assertEquals(true,moveHandler.movesMade[0].isClassical());
+//	assertEquals(true,moveHandler.movesMade[1].isClassical());
 };
 
 TestMoveHandlerCollapseString.prototype.testCollapse00020002Move1Point01 = function() {
@@ -78,7 +87,6 @@ moveHandler.addMove(new SuperMove(new Point(0, 0), new Point(1, 2)));
 moveHandler.addMove(new SuperMove(new Point(1, 2), new Point(0, 2)));
 moveHandler.collapseString(1,new Point(0,0));
 var classicalMoves = moveHandler.getValidClassicalMoves();
-jstestdriver.console.log(classicalMoves);
 assertEquals(1,classicalMoves.length);
 
 var classicalMoveList = new ClassicalMoveList();
@@ -96,7 +104,6 @@ moveHandler.addMove(new SuperMove(new Point(0, 0), new Point(1, 2)));
 moveHandler.addMove(new SuperMove(new Point(1, 2), new Point(0, 2)));
 moveHandler.collapseString(2,new Point(0,2));
 var classicalMoves = moveHandler.getValidClassicalMoves();
-jstestdriver.console.log(classicalMoves);
 assertEquals(1,classicalMoves.length);
 
 var classicalMoveList = new ClassicalMoveList();

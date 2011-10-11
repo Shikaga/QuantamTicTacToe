@@ -34,10 +34,12 @@ SuperMoveTest.prototype.testMakeMoveClassicalByPoint = function() {
 	var point2 = new Point(0,0);
 	var superMove = new SuperMove(point1, point2);
 	var point1Clone = new Point(1,1); 
-	superMove.makeClassicalPoint(point1Clone);
+	var moveDestroyed = superMove.makeClassicalPoint(point1Clone);
+	
 	assertEquals(true,superMove.isClassical());
 	assertEquals(point1,superMove.point1);
 	assertEquals(point1,superMove.point2);
+	assertEquals(new Point(0, 0), moveDestroyed);
 };
 
 SuperMoveTest.prototype.testMake2ndMoveClassicalByPoint = function() {
@@ -45,10 +47,11 @@ SuperMoveTest.prototype.testMake2ndMoveClassicalByPoint = function() {
 	var point2 = new Point(0,0);
 	var superMove = new SuperMove(point1, point2);
 	var point2Clone = new Point(0,0); 
-	superMove.makeClassicalPoint(point2Clone);
+	var moveDestroyed = superMove.makeClassicalPoint(point2Clone);
 	assertEquals(true,superMove.isClassical());
 	assertEquals(point2,superMove.point1);
 	assertEquals(point2,superMove.point2);
+	assertEquals(new Point(1, 1), moveDestroyed);
 };
 
 SuperMoveTest.prototype.testMakeMoveClassicalByNotPoint = function() {

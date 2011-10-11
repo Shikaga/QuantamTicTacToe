@@ -18,12 +18,16 @@ SuperMove.prototype.isClassical = function() {
 };
 
 SuperMove.prototype.makeClassicalPoint = function(point) {
+	var returnPoint = null;
 	if (this.point1.equals(point)) {
+		returnPoint = this.point2;
 		this.makeClassical(0);		
 	}
 	else {
+		returnPoint = this.point1;
 		this.makeClassical(1);
 	}
+	return returnPoint;
 };
 
 SuperMove.prototype.makeClassicalNotPoint = function(point) {
