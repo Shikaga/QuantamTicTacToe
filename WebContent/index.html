@@ -28,9 +28,10 @@ var collapseTime = false;
 function clickButton(x,y) {
 	if (collapseTime) {
 		collapseTime = false;
-		moveHandler.collapseString(0, new Point(x,y));
+		var number = moveHandler.getMovesInSector(x, y)[0];
+		console.log("XXX", number);
+		moveHandler.collapseString(number, new Point(x,y));
 		repaint();
-		console.log(moveHandler);
 	} else {		
 		lastButtonsClicked.push(new Point(x,y));
 		if (lastButtonsClicked.length == 2) {

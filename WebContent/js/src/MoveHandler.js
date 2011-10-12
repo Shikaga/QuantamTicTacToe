@@ -62,15 +62,23 @@ MoveHandler.prototype.getCollapsable = function() {
 };
 
 MoveHandler.prototype.collapseString = function(move,movePoint) {
-	destroyPoint = this.movesMade[move].makeClassicalPoint(movePoint);
+	this.movesMade[move].makeClassicalPoint(movePoint);
 	var validClassicalMoves = this.getValidClassicalMoves();
-	for (var moves in validClassicalMoves) {
-		for (move in validClassicalMoves[moves].moveList) {
-			if (!this.movesMade[move].isClassical()) {
-				this.collapseString(move, validClassicalMoves[moves].moveList[move]);
-			}			
+	console.log(move,movePoint);
+	console.log(validClassicalMoves);
+		for (move in validClassicalMoves[0].moveList) {
+			var flag = true;
+			for (var moves in validClassicalMoves) {
+				if (validClassicalMoves[moves].moveList[move] != validClassicalMoves[0].moveList[move]) {
+					flag = false;
+				}
+			}
+			if (flag) {				
+				if (!this.movesMade[move].isClassical()) {
+					this.collapseString(move, validClassicalMoves[0].moveList[move]);
+				}			
+			}
 		}
-	}
 };
 
 //MoveHandler.prototype.collapseString = function(move,movePoint) {
